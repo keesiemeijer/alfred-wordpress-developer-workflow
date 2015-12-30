@@ -1,0 +1,342 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>bundleid</key>
+	<string>wp_developer</string>
+	<key>connections</key>
+	<dict>
+		<key>159F6CB9-93FD-4026-8222-E9DD5293DD17</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>346674F3-B314-4B20-BAEC-11C18EC43FF9</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>3C305A48-BF72-4765-B0E4-8D86BF26819D</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>3D33C27C-6F12-46BF-B741-6C1F5A1631EA</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>6A9E048E-2E39-4613-BE0E-B05264F13E14</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+	</dict>
+	<key>createdby</key>
+	<string>keesiemeijer</string>
+	<key>description</key>
+	<string>Search the WordPress Developer Reference</string>
+	<key>disabled</key>
+	<false/>
+	<key>name</key>
+	<string>WordPress Developer</string>
+	<key>objects</key>
+	<array>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>62</integer>
+				<key>keyword</key>
+				<string>wpdev function</string>
+				<key>script</key>
+				<string>require_once 'extension_utils.php';
+require_once 'functions.php';
+
+$utils = new ExtensionUtils();
+
+$query_words = get_query_words( '{query}' );
+$word_count = count( $query_words );
+
+if ( $word_count &gt; 0 ) {
+	$type = json_decode( file_get_contents( 'functions.json' ) );
+	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+
+		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
+	}
+	echo $utils-&gt;toXml( $results );
+}</string>
+				<key>subtext</key>
+				<string>Search Functions</string>
+				<key>title</key>
+				<string>Functions</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>3C305A48-BF72-4765-B0E4-8D86BF26819D</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>30</integer>
+				<key>keyword</key>
+				<string>wpdev hook</string>
+				<key>script</key>
+				<string>require_once 'extension_utils.php';
+require_once 'functions.php';
+
+$utils = new ExtensionUtils();
+
+$query_words = get_query_words( '{query}' );
+$word_count = count( $query_words );
+
+if ( $word_count &gt; 0 ) {
+	$type = json_decode( file_get_contents( 'hooks.json' ) );
+	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+
+		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
+	}
+	echo $utils-&gt;toXml( $results );
+}</string>
+				<key>subtext</key>
+				<string>Search Hooks</string>
+				<key>title</key>
+				<string>Hooks</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>346674F3-B314-4B20-BAEC-11C18EC43FF9</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>plusspaces</key>
+				<false/>
+				<key>url</key>
+				<string>{query}</string>
+				<key>utf8</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.openurl</string>
+			<key>uid</key>
+			<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>30</integer>
+				<key>keyword</key>
+				<string>wpdev action</string>
+				<key>script</key>
+				<string>require_once 'extension_utils.php';
+require_once 'functions.php';
+
+$utils = new ExtensionUtils();
+
+$query_words = get_query_words( '{query}' );
+$word_count = count( $query_words );
+
+if ( $word_count &gt; 0 ) {
+	$type = json_decode( file_get_contents( 'actions.json' ) );
+	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+
+		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
+	}
+	echo $utils-&gt;toXml( $results );
+}</string>
+				<key>subtext</key>
+				<string>Search action hooks</string>
+				<key>title</key>
+				<string>Actions</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>159F6CB9-93FD-4026-8222-E9DD5293DD17</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>30</integer>
+				<key>keyword</key>
+				<string>wpdev filter</string>
+				<key>script</key>
+				<string>require_once 'extension_utils.php';
+require_once 'functions.php';
+
+$utils = new ExtensionUtils();
+
+$query_words = get_query_words( '{query}' );
+$word_count = count( $query_words );
+
+if ( $word_count &gt; 0 ) {
+	$type = json_decode( file_get_contents( 'filters.json' ) );
+	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+
+		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
+	}
+	echo $utils-&gt;toXml( $results );
+}</string>
+				<key>subtext</key>
+				<string>Search Filters</string>
+				<key>title</key>
+				<string>Filters</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>3D33C27C-6F12-46BF-B741-6C1F5A1631EA</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>0</integer>
+				<key>escaping</key>
+				<integer>62</integer>
+				<key>keyword</key>
+				<string>wpdev class</string>
+				<key>script</key>
+				<string>require_once 'extension_utils.php';
+require_once 'functions.php';
+
+$utils = new ExtensionUtils();
+
+$query_words = get_query_words( '{query}' );
+$word_count = count( $query_words );
+
+if ( $word_count &gt; 0 ) {
+	$type = json_decode( file_get_contents( 'classes.json' ) );
+	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+
+		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
+	}
+	echo $utils-&gt;toXml( $results );
+}</string>
+				<key>subtext</key>
+				<string>Search Classes</string>
+				<key>title</key>
+				<string>Classes</string>
+				<key>type</key>
+				<integer>1</integer>
+				<key>withspace</key>
+				<true/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.scriptfilter</string>
+			<key>uid</key>
+			<string>6A9E048E-2E39-4613-BE0E-B05264F13E14</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+	</array>
+	<key>readme</key>
+	<string>This workflow let's you search the WordPress developer reference with the keyword wpdev.
+https://developer.wordpress.org</string>
+	<key>uidata</key>
+	<dict>
+		<key>159F6CB9-93FD-4026-8222-E9DD5293DD17</key>
+		<dict>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
+		<key>346674F3-B314-4B20-BAEC-11C18EC43FF9</key>
+		<dict>
+			<key>ypos</key>
+			<real>140</real>
+		</dict>
+		<key>3C305A48-BF72-4765-B0E4-8D86BF26819D</key>
+		<dict>
+			<key>ypos</key>
+			<real>20</real>
+		</dict>
+		<key>3D33C27C-6F12-46BF-B741-6C1F5A1631EA</key>
+		<dict>
+			<key>ypos</key>
+			<real>380</real>
+		</dict>
+		<key>6A9E048E-2E39-4613-BE0E-B05264F13E14</key>
+		<dict>
+			<key>ypos</key>
+			<real>500</real>
+		</dict>
+		<key>84217719-E1CD-46DE-B4F9-06D75118C896</key>
+		<dict>
+			<key>ypos</key>
+			<real>260</real>
+		</dict>
+	</dict>
+	<key>webaddress</key>
+	<string></string>
+</dict>
+</plist>
