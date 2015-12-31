@@ -3,11 +3,19 @@
 <plist version="1.0">
 <dict>
 	<key>bundleid</key>
-	<string>wp_developer</string>
+	<string>com.wpdev.keesiemeijer</string>
 	<key>connections</key>
 	<dict>
 		<key>159F6CB9-93FD-4026-8222-E9DD5293DD17</key>
 		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F8593B86-98AF-4605-8189-91DCBCB7E18F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
@@ -21,6 +29,14 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>F8593B86-98AF-4605-8189-91DCBCB7E18F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -30,6 +46,14 @@
 		</array>
 		<key>3C305A48-BF72-4765-B0E4-8D86BF26819D</key>
 		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>F8593B86-98AF-4605-8189-91DCBCB7E18F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
 			<dict>
 				<key>destinationuid</key>
 				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
@@ -43,6 +67,14 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>F8593B86-98AF-4605-8189-91DCBCB7E18F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
 				<key>modifiers</key>
 				<integer>0</integer>
@@ -54,7 +86,50 @@
 		<array>
 			<dict>
 				<key>destinationuid</key>
+				<string>F8593B86-98AF-4605-8189-91DCBCB7E18F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+			<dict>
+				<key>destinationuid</key>
 				<string>84217719-E1CD-46DE-B4F9-06D75118C896</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>84217719-E1CD-46DE-B4F9-06D75118C896</key>
+		<array/>
+		<key>A1CDEA62-5534-4541-BF6C-09C317F6D9D6</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C14528F-D939-4C7E-B304-213DAA8BE27F</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>B8D3BDEC-FB16-4E5D-A3FC-5CEFEFF0FEBC</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>A1CDEA62-5534-4541-BF6C-09C317F6D9D6</string>
+				<key>modifiers</key>
+				<integer>0</integer>
+				<key>modifiersubtext</key>
+				<string></string>
+			</dict>
+		</array>
+		<key>F8593B86-98AF-4605-8189-91DCBCB7E18F</key>
+		<array>
+			<dict>
+				<key>destinationuid</key>
+				<string>8C14528F-D939-4C7E-B304-213DAA8BE27F</string>
 				<key>modifiers</key>
 				<integer>0</integer>
 				<key>modifiersubtext</key>
@@ -81,6 +156,14 @@
 				<integer>62</integer>
 				<key>keyword</key>
 				<string>wpdev function</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>script</key>
 				<string>require_once 'extension_utils.php';
 require_once 'functions.php';
@@ -92,7 +175,7 @@ $word_count = count( $query_words );
 
 if ( $word_count &gt; 0 ) {
 	$type = json_decode( file_get_contents( 'functions.json' ) );
-	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+	if ( isset( $type-&gt;content ) &amp;&amp; $type-&gt;content ) {
 
 		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
 	}
@@ -117,12 +200,46 @@ if ( $word_count &gt; 0 ) {
 		<dict>
 			<key>config</key>
 			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>100</integer>
+				<key>script</key>
+				<string>$query = "{query}";
+
+require_once 'functions.php';
+
+$update_files = update_files();
+if( $update_files ) {
+	include_once 'update.php';
+}</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>F8593B86-98AF-4605-8189-91DCBCB7E18F</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
 				<key>argumenttype</key>
 				<integer>0</integer>
 				<key>escaping</key>
 				<integer>30</integer>
 				<key>keyword</key>
 				<string>wpdev hook</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>script</key>
 				<string>require_once 'extension_utils.php';
 require_once 'functions.php';
@@ -134,7 +251,7 @@ $word_count = count( $query_words );
 
 if ( $word_count &gt; 0 ) {
 	$type = json_decode( file_get_contents( 'hooks.json' ) );
-	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+	if ( isset( $type-&gt;content ) &amp;&amp; $type-&gt;content ) {
 
 		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
 	}
@@ -182,6 +299,14 @@ if ( $word_count &gt; 0 ) {
 				<integer>30</integer>
 				<key>keyword</key>
 				<string>wpdev action</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>script</key>
 				<string>require_once 'extension_utils.php';
 require_once 'functions.php';
@@ -193,7 +318,7 @@ $word_count = count( $query_words );
 
 if ( $word_count &gt; 0 ) {
 	$type = json_decode( file_get_contents( 'actions.json' ) );
-	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+	if ( isset( $type-&gt;content ) &amp;&amp; $type-&gt;content ) {
 
 		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
 	}
@@ -224,6 +349,14 @@ if ( $word_count &gt; 0 ) {
 				<integer>30</integer>
 				<key>keyword</key>
 				<string>wpdev filter</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>script</key>
 				<string>require_once 'extension_utils.php';
 require_once 'functions.php';
@@ -235,7 +368,7 @@ $word_count = count( $query_words );
 
 if ( $word_count &gt; 0 ) {
 	$type = json_decode( file_get_contents( 'filters.json' ) );
-	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+	if ( isset( $type-&gt;content ) &amp;&amp; $type-&gt;content ) {
 
 		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
 	}
@@ -266,6 +399,14 @@ if ( $word_count &gt; 0 ) {
 				<integer>62</integer>
 				<key>keyword</key>
 				<string>wpdev class</string>
+				<key>queuedelaycustom</key>
+				<integer>1</integer>
+				<key>queuedelayimmediatelyinitially</key>
+				<false/>
+				<key>queuedelaymode</key>
+				<integer>0</integer>
+				<key>queuemode</key>
+				<integer>1</integer>
 				<key>script</key>
 				<string>require_once 'extension_utils.php';
 require_once 'functions.php';
@@ -277,7 +418,7 @@ $word_count = count( $query_words );
 
 if ( $word_count &gt; 0 ) {
 	$type = json_decode( file_get_contents( 'classes.json' ) );
-	if(isset($type-&gt;content) &amp;&amp; $type-&gt;content){
+	if ( isset( $type-&gt;content ) &amp;&amp; $type-&gt;content ) {
 
 		$results = get_query_search_results( $query_words, $word_count, $type-&gt;content, $type-&gt;url );
 	}
@@ -296,6 +437,74 @@ if ( $word_count &gt; 0 ) {
 			<string>alfred.workflow.input.scriptfilter</string>
 			<key>uid</key>
 			<string>6A9E048E-2E39-4613-BE0E-B05264F13E14</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>argumenttype</key>
+				<integer>2</integer>
+				<key>keyword</key>
+				<string>wpdev update</string>
+				<key>subtext</key>
+				<string>Update the developer reference workflow</string>
+				<key>text</key>
+				<string>Update</string>
+				<key>withspace</key>
+				<false/>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.input.keyword</string>
+			<key>uid</key>
+			<string>B8D3BDEC-FB16-4E5D-A3FC-5CEFEFF0FEBC</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>concurrently</key>
+				<false/>
+				<key>escaping</key>
+				<integer>100</integer>
+				<key>script</key>
+				<string>$query = "{query}";
+
+require_once 'functions.php';
+require_once 'update.php';</string>
+				<key>type</key>
+				<integer>1</integer>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.action.script</string>
+			<key>uid</key>
+			<string>A1CDEA62-5534-4541-BF6C-09C317F6D9D6</string>
+			<key>version</key>
+			<integer>0</integer>
+		</dict>
+		<dict>
+			<key>config</key>
+			<dict>
+				<key>lastpathcomponent</key>
+				<false/>
+				<key>onlyshowifquerypopulated</key>
+				<true/>
+				<key>output</key>
+				<integer>0</integer>
+				<key>removeextension</key>
+				<false/>
+				<key>sticky</key>
+				<false/>
+				<key>text</key>
+				<string>{query}</string>
+				<key>title</key>
+				<string>WordPress Developer Reference</string>
+			</dict>
+			<key>type</key>
+			<string>alfred.workflow.output.notification</string>
+			<key>uid</key>
+			<string>8C14528F-D939-4C7E-B304-213DAA8BE27F</string>
 			<key>version</key>
 			<integer>0</integer>
 		</dict>
@@ -334,6 +543,26 @@ https://developer.wordpress.org</string>
 		<dict>
 			<key>ypos</key>
 			<real>260</real>
+		</dict>
+		<key>8C14528F-D939-4C7E-B304-213DAA8BE27F</key>
+		<dict>
+			<key>ypos</key>
+			<real>630</real>
+		</dict>
+		<key>A1CDEA62-5534-4541-BF6C-09C317F6D9D6</key>
+		<dict>
+			<key>ypos</key>
+			<real>630</real>
+		</dict>
+		<key>B8D3BDEC-FB16-4E5D-A3FC-5CEFEFF0FEBC</key>
+		<dict>
+			<key>ypos</key>
+			<real>630</real>
+		</dict>
+		<key>F8593B86-98AF-4605-8189-91DCBCB7E18F</key>
+		<dict>
+			<key>ypos</key>
+			<real>20</real>
 		</dict>
 	</dict>
 	<key>webaddress</key>
