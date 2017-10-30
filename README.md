@@ -1,7 +1,7 @@
 # alfred-wordpress-developer-workflow
 Alfred workflow to search the [WordPress developer reference](https://developer.wordpress.org/reference/)
 
-See the [this forum topic](http://www.alfredforum.com/topic/4321-wordpress-developer-reference/) for more information.
+See [this forum topic](http://www.alfredforum.com/topic/4321-wordpress-developer-reference/) for more information.
 
 Searching WordPress core made easy. Finding results is very fast because it searches in local JSON files (instead of an online API).
 The JSON files included in this workflow are created with the [WP Parser JSON plugin](https://github.com/keesiemeijer/wp-parser-json)
