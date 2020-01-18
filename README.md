@@ -13,4 +13,8 @@ The workflow checks every 2 weeks if there are new updates in WordPress core. Or
 ![screeshot-1](https://user-images.githubusercontent.com/1436618/27253217-aad88e32-5370-11e7-9a18-49cd60d5c540.png)
 
 # Update Instructions
-To update this workflow to the newest version delete the workflow in alfred itself and [click this link](https://github.com/keesiemeijer/alfred-wordpress-developer-workflow/raw/master/wordpress-developer.alfredworkflow).
+To update this workflow to the newest version [click this link](https://github.com/keesiemeijer/alfred-wordpress-developer-workflow/raw/master/wordpress-developer.alfredworkflow).
+
+# Changelog
+* version 1.0
+	* Add ability to update the workflow from within the alfred app.
