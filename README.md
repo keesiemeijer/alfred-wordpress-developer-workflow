@@ -16,5 +16,8 @@ The workflow checks every 2 weeks if there are new updates in WordPress core. Or
 To update this workflow to the newest version [click this link](https://github.com/keesiemeijer/alfred-wordpress-developer-workflow/raw/master/wordpress-developer.alfredworkflow).
 
 # Changelog
+* version 2.0
+	* Fix Curl issue with permanently moved (redirected) files
+	* Order pinned (update workflow) results at the top
 * version 1.0
 	* Add ability to update the workflow from within the alfred app.
